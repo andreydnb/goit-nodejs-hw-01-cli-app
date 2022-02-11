@@ -25,7 +25,7 @@ async function removeContact(contactId) {
   const contacts = await readContent()
   const [contact] = contacts.filter((c) => c.id === contactId)
   const renewedContacts = contacts.filter((c) => c.id !== contactId)
-  await fs.writeFile(contactsPath, JSON.stringify(renewedContacts))
+  await fs.writeFile(contactsPath, JSON.stringify(renewedContacts, null, 2))
   return contact;
 }
 
